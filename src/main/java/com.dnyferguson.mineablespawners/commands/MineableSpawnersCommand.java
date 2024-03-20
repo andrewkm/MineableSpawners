@@ -2,6 +2,7 @@ package com.dnyferguson.mineablespawners.commands;
 
 import com.dnyferguson.mineablespawners.MineableSpawners;
 import com.dnyferguson.mineablespawners.utils.Chat;
+import com.dnyferguson.mineablespawners.utils.LanguageHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -75,6 +76,7 @@ public class MineableSpawnersCommand implements CommandExecutor {
 
         if (subCommand.equals("reload") && sender.hasPermission("mineablespawners.reload")) {
             plugin.getConfigurationHandler().reload();
+            LanguageHandler.reloadConfig();
             sender.sendMessage(Chat.format("&e[MineableSpawners] &aYou have successfully reloaded the config!"));
             return true;
         }

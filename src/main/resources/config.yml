@@ -12,6 +12,8 @@ global:
   backwards-compatibility: false
   # Enable/Disable showing a list of available entities in server console on plugin start
   show-available: false
+  # Select the language for the spawner entity names. Available languages: en_US, es_ES
+  spawner-entity-lang: 'en_US'
   # Set how spawners look. Available placeholder: %mob% => mob name
   display:
     name: '&e%mob% &fSpawner'

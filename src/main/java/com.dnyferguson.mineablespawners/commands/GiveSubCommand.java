@@ -3,6 +3,7 @@ package com.dnyferguson.mineablespawners.commands;
 import com.cryptomorin.xseries.XMaterial;
 import com.dnyferguson.mineablespawners.MineableSpawners;
 import com.dnyferguson.mineablespawners.utils.Chat;
+import com.dnyferguson.mineablespawners.utils.LanguageHandler;
 import com.dnyferguson.mineablespawners.utils.SpawnerUtils;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Bukkit;
@@ -44,7 +45,7 @@ public class GiveSubCommand {
         }
 
         ItemStack item = SpawnerUtils.generateSpawnerItem(entityType, amount);
-        String mobFormatted = Chat.uppercaseStartingLetters(entityType.name());
+        String mobFormatted = LanguageHandler.getEntityTranslation(entityType);
 
         if (targetPlayer.getInventory().firstEmpty() == -1) {
             if (!plugin.getConfigurationHandler().getBooleanOrDefault("give", "drop-if-full", true)) {

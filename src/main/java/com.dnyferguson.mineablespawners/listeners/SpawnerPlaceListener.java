@@ -3,6 +3,7 @@ package com.dnyferguson.mineablespawners.listeners;
 import com.cryptomorin.xseries.XMaterial;
 import com.dnyferguson.mineablespawners.MineableSpawners;
 import com.dnyferguson.mineablespawners.utils.Chat;
+import com.dnyferguson.mineablespawners.utils.LanguageHandler;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -110,7 +111,7 @@ public class SpawnerPlaceListener implements Listener {
         }
 
         if (cost > 0) {
-            player.sendMessage(plugin.getConfigurationHandler().getMessage("placing", "transaction-success").replace("%type%", Chat.uppercaseStartingLetters(type.name())).replace("%cost%", df.format(cost).replace("%balance%", df.format(plugin.getEcon().getBalance(player)))));
+            player.sendMessage(plugin.getConfigurationHandler().getMessage("placing", "transaction-success").replace("%type%", LanguageHandler.getEntityTranslation(type)).replace("%cost%", df.format(cost).replace("%balance%", df.format(plugin.getEcon().getBalance(player)))));
         }
     }
 }

@@ -3,6 +3,7 @@ package com.dnyferguson.mineablespawners.commands;
 import com.cryptomorin.xseries.XMaterial;
 import com.dnyferguson.mineablespawners.MineableSpawners;
 import com.dnyferguson.mineablespawners.utils.Chat;
+import com.dnyferguson.mineablespawners.utils.LanguageHandler;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.CreatureSpawner;
@@ -57,8 +58,8 @@ public class SetSubCommand {
 
         CreatureSpawner spawner = (CreatureSpawner) target.getState();
 
-        String from = Chat.uppercaseStartingLetters(spawner.getSpawnedType().name());
-        String to = Chat.uppercaseStartingLetters(type);
+        String from = LanguageHandler.getEntityTranslation(spawner.getSpawnedType());
+        String to = LanguageHandler.getEntityTranslation(entityType);
         if (from.equals(to)) {
             player.sendMessage(plugin.getConfigurationHandler().getMessage("set", "already-type"));
             return;

@@ -213,6 +213,7 @@ public class ConfigurationHandler {
         lsts.put("lore", section.getStringList("display.lore"));
 
         bools.put("lore-enabled", section.getBoolean("display.lore-enabled"));
+        bools.put("hide-attributes", section.getBoolean("display.hide-attributes"));
         bools.put("backwards-compatibility", section.getBoolean("backwards-compatibility"));
         bools.put("show-available", section.getBoolean("show-available"));
 

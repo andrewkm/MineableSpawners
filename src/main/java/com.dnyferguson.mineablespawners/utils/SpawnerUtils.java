@@ -19,7 +19,7 @@ public class SpawnerUtils {
         ItemMeta meta = item.getItemMeta();
         item.setAmount(amount);
 
-        String mobFormatted = Chat.uppercaseStartingLetters(entityType.name());
+        String mobFormatted = LanguageHandler.getEntityTranslation(entityType);
         meta.setDisplayName(Chat.format(MineableSpawners.getInstance().getConfigurationHandler().getMessage("global", "name").replace("%mob%", mobFormatted)));
         List<String> newLore = new ArrayList<>();
         if (MineableSpawners.getInstance().getConfigurationHandler().getList("global", "lore") != null && MineableSpawners.getInstance().getConfigurationHandler().getBoolean("global", "lore-enabled")) {

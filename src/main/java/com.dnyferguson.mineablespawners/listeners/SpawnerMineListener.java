@@ -3,6 +3,7 @@ package com.dnyferguson.mineablespawners.listeners;
 import com.cryptomorin.xseries.XMaterial;
 import com.dnyferguson.mineablespawners.MineableSpawners;
 import com.dnyferguson.mineablespawners.utils.Chat;
+import com.dnyferguson.mineablespawners.utils.LanguageHandler;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -185,7 +186,7 @@ public class SpawnerMineListener implements Listener {
         ItemStack item = MineableSpawners.getApi().getSpawnerFromEntityType(entityType);
 
         if (cost > 0) {
-            player.sendMessage(plugin.getConfigurationHandler().getMessage("mining", "transaction-success").replace("%type%", Chat.uppercaseStartingLetters(entityType.name())).replace("%cost%", df.format(cost)).replace("%balance%", df.format(plugin.getEcon().getBalance(player))));
+            player.sendMessage(plugin.getConfigurationHandler().getMessage("mining", "transaction-success").replace("%type%", LanguageHandler.getEntityTranslation(entityType)).replace("%cost%", df.format(cost)).replace("%balance%", df.format(plugin.getEcon().getBalance(player))));
         }
 
         if (plugin.getConfigurationHandler().getBoolean("mining", "drop-to-inventory")) {
