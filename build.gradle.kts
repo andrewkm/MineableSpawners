@@ -25,7 +25,6 @@ version = "3.1.5"
 description = "MineableSpawners"
 java.sourceCompatibility = JavaVersion.VERSION_16
 
-
 tasks {
     withType<JavaCompile> {
         options.encoding = "UTF-8"
@@ -33,6 +32,13 @@ tasks {
     shadowJar {
         relocate("de.tr7zw.changeme.nbtapi", "com.dnyferguson.mineablespawners.nbtapi")
         relocate("com.cryptomorin.xseries", "com.dnyferguson.mineablespawners.xseries")
+    }
+    processResources {
+        filesMatching("**/*.yml") {
+            filter<org.apache.tools.ant.filters.ReplaceTokens>(
+                "tokens" to mapOf("version" to project.version)
+            )
+        }
     }
 
 }

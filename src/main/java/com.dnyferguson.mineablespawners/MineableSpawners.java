@@ -10,6 +10,7 @@ import com.dnyferguson.mineablespawners.listeners.SpawnerPlaceListener;
 import com.dnyferguson.mineablespawners.listeners.AnvilRenameListener;
 import com.dnyferguson.mineablespawners.metrics.Metrics;
 import com.dnyferguson.mineablespawners.utils.ConfigurationHandler;
+import com.dnyferguson.mineablespawners.utils.LanguageHandler;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.entity.EntityType;
 import org.bukkit.plugin.PluginManager;
@@ -29,6 +30,7 @@ public final class MineableSpawners extends JavaPlugin {
         saveDefaultConfig();
 
         configurationHandler = new ConfigurationHandler(this);
+        LanguageHandler.loadConfig();
 
         if (!setupEconomy()) {
             getLogger().info("vault not found, economy features disabled.");

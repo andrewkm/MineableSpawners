@@ -24,12 +24,13 @@ public class LanguageHandler {
         return translations.getOrDefault(entityType, "Unknown");
     }
 
-    private static void loadConfig() {
+    public static void loadConfig() {
         FileConfiguration config = MineableSpawners.getInstance().getConfig();
         String selectedLanguage = config.getString("global.spawner-entity-lang", "en_US");
-        languageConfigFile = new File(MineableSpawners.getInstance().getDataFolder(), "translation/entitytypes_" + selectedLanguage + "_.yml");
+        languageConfigFile = new File(MineableSpawners.getInstance().getDataFolder() + "/translation", "entitytypes_" + selectedLanguage + ".yml");
         if (!languageConfigFile.exists()) {
-            MineableSpawners.getInstance().saveResource("translation/entitytypes_" + selectedLanguage + "_.yml", false);
+            languageConfigFile.getParentFile().mkdirs();
+            MineableSpawners.getInstance().saveResource("translation/entitytypes_" + selectedLanguage + ".yml", false);
         }
         languageConfig = new YamlConfiguration();
         try {
@@ -37,8 +38,7 @@ public class LanguageHandler {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        // Load the translations. Map is "translation"
-        ConfigurationSection translationSection = languageConfig.getConfigurationSection("translation");
+        ConfigurationSection translationSection = languageConfig.getConfigurationSection("translations");
         for (String key : translationSection.getKeys(false)) {
             EntityType entityType = EntityType.valueOf(key);
             String translation = translationSection.getString(key);
