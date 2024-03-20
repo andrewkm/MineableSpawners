@@ -28,6 +28,9 @@ public class LanguageHandler {
         FileConfiguration config = MineableSpawners.getInstance().getConfig();
         String selectedLanguage = config.getString("global.spawner-entity-lang", "en_US");
         languageConfigFile = new File(MineableSpawners.getInstance().getDataFolder(), "translation/entitytypes_" + selectedLanguage + "_.yml");
+        if (!languageConfigFile.exists()) {
+            MineableSpawners.getInstance().saveResource("translation/entitytypes_" + selectedLanguage + "_.yml", false);
+        }
         languageConfig = new YamlConfiguration();
         try {
             languageConfig.load(languageConfigFile);
