@@ -19,6 +19,7 @@ global:
       - '&aPlace this down for'
       - '&a %mob% Spawner.'
     lore-enabled: true
+    hide-attributes: true
 
 #
 # /mineablespawners command

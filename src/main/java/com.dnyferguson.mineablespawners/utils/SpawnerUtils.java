@@ -29,6 +29,11 @@ public class SpawnerUtils {
             meta.setLore(newLore);
         }
 
+        boolean hideattributes = MineableSpawners.getInstance().getConfigurationHandler().getBoolean("global", "hide-attributes");
+        if (hideattributes) {
+            meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        }
+
         item.setItemMeta(meta);
 
         NBTItem nbti = new NBTItem(item);
