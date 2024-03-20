@@ -3,6 +3,7 @@ package com.dnyferguson.mineablespawners.listeners;
 import com.cryptomorin.xseries.XMaterial;
 import com.dnyferguson.mineablespawners.MineableSpawners;
 import com.dnyferguson.mineablespawners.utils.Chat;
+import com.dnyferguson.mineablespawners.utils.SpawnerUtils;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.block.Block;
 import org.bukkit.block.CreatureSpawner;
@@ -49,27 +50,7 @@ public class SpawnerExplodeListener implements Listener {
 
             CreatureSpawner spawner = (CreatureSpawner) block.getState();
 
-            ItemStack item = new ItemStack(XMaterial.SPAWNER.parseMaterial());
-            ItemMeta meta = item.getItemMeta();
-            String mobFormatted = Chat.uppercaseStartingLetters(spawner.getSpawnedType().toString());
-
-            if (meta != null) {
-                meta.setDisplayName(plugin.getConfigurationHandler().getMessage("global", "name").replace("%mob%", mobFormatted));
-                List<String> newLore = new ArrayList<>();
-                if (plugin.getConfigurationHandler().getList("global", "lore") != null && plugin.getConfigurationHandler().getBoolean("global", "lore-enabled")) {
-                    for (String line : plugin.getConfigurationHandler().getList("global", "lore")) {
-                        newLore.add(Chat.format(line).replace("%mob%", mobFormatted));
-                    }
-                    meta.setLore(newLore);
-                }
-                item.setItemMeta(meta);
-            }
-
-            NBTItem nbti = new NBTItem(item);
-            nbti.setString("ms_mob", spawner.getSpawnedType().name());
-
-            item = nbti.getItem();
-
+            ItemStack item = SpawnerUtils.generateSpawnerItem(spawner.getSpawnedType(), 1);
             if (block.getLocation().getWorld() != null) {
                 block.getLocation().getWorld().dropItemNaturally(block.getLocation(), item);
             }

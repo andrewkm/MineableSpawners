@@ -3,6 +3,7 @@ package com.dnyferguson.mineablespawners.api;
 import com.cryptomorin.xseries.XMaterial;
 import com.dnyferguson.mineablespawners.MineableSpawners;
 import com.dnyferguson.mineablespawners.utils.Chat;
+import com.dnyferguson.mineablespawners.utils.SpawnerUtils;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.EntityType;
@@ -54,23 +55,6 @@ public class API {
     }
 
     public ItemStack getSpawnerFromEntityType(EntityType entityType) {
-        ItemStack item = new ItemStack(Objects.requireNonNull(XMaterial.SPAWNER.parseMaterial()));
-        ItemMeta meta = item.getItemMeta();
-
-        String mobFormatted = Chat.uppercaseStartingLetters(entityType.name().toString());
-        meta.setDisplayName(plugin.getConfigurationHandler().getMessage("global", "name").replace("%mob%", mobFormatted));
-        List<String> newLore = new ArrayList<>();
-        if (plugin.getConfigurationHandler().getList("global", "lore") != null && plugin.getConfigurationHandler().getBoolean("global", "lore-enabled")) {
-            for (String line : plugin.getConfigurationHandler().getList("global", "lore")) {
-                newLore.add(Chat.format(line).replace("%mob%", mobFormatted));
-            }
-            meta.setLore(newLore);
-        }
-        item.setItemMeta(meta);
-
-        NBTItem nbti = new NBTItem(item);
-        nbti.setString("ms_mob", entityType.name());
-
-        return nbti.getItem();
+        return SpawnerUtils.generateSpawnerItem(entityType, 1);
     }
 }

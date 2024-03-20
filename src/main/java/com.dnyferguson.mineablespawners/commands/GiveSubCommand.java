@@ -3,6 +3,7 @@ package com.dnyferguson.mineablespawners.commands;
 import com.cryptomorin.xseries.XMaterial;
 import com.dnyferguson.mineablespawners.MineableSpawners;
 import com.dnyferguson.mineablespawners.utils.Chat;
+import com.dnyferguson.mineablespawners.utils.SpawnerUtils;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
@@ -42,25 +43,8 @@ public class GiveSubCommand {
             return;
         }
 
-        ItemStack item = new ItemStack(XMaterial.SPAWNER.parseMaterial());
-        ItemMeta meta = item.getItemMeta();
-        item.setAmount(amount);
-
+        ItemStack item = SpawnerUtils.generateSpawnerItem(entityType, amount);
         String mobFormatted = Chat.uppercaseStartingLetters(entityType.name());
-        meta.setDisplayName(Chat.format(plugin.getConfigurationHandler().getMessage("global", "name").replace("%mob%", mobFormatted)));
-        List<String> newLore = new ArrayList<>();
-        if (plugin.getConfigurationHandler().getList("global", "lore") != null && plugin.getConfigurationHandler().getBoolean("global", "lore-enabled")) {
-            for (String line : plugin.getConfigurationHandler().getList("global", "lore")) {
-                newLore.add(Chat.format(line).replace("%mob%", mobFormatted));
-            }
-            meta.setLore(newLore);
-        }
-        item.setItemMeta(meta);
-
-        NBTItem nbti = new NBTItem(item);
-        nbti.setString("ms_mob", entityType.name());
-
-        item = nbti.getItem();
 
         if (targetPlayer.getInventory().firstEmpty() == -1) {
             if (!plugin.getConfigurationHandler().getBooleanOrDefault("give", "drop-if-full", true)) {
