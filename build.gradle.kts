@@ -32,6 +32,9 @@ tasks {
     shadowJar {
         relocate("de.tr7zw.changeme.nbtapi", "com.dnyferguson.mineablespawners.nbtapi")
         relocate("com.cryptomorin.xseries", "com.dnyferguson.mineablespawners.xseries")
+        manifest {
+            attributes("paperweight-mappings-namespace" to "mojang")
+        }
     }
     processResources {
         filesMatching("**/*.yml") {
