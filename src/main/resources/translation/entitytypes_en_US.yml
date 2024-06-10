@@ -1,8 +1,13 @@
 translations:
+  ALLAY: Allay
+  ARMADILLO: Armadillo
   AXOLOTL: Axolotl
   BAT: Bat
   BEE: Bee
   BLAZE: Blaze
+  BOGGED: Bogged
+  BREEZE: Breeze
+  CAMEL: Camel
   CAT: Cat
   CAVE_SPIDER: Cave Spider
   CHICKEN: Chicken
@@ -13,11 +18,12 @@ translations:
   DONKEY: Donkey
   DROWNED: Drowned
   ELDER_GUARDIAN: Elder Guardian
-  EVOKER: Evoker
   ENDER_DRAGON: Ender Dragon
   ENDERMAN: Enderman
   ENDERMITE: Endermite
+  EVOKER: Evoker
   FOX: Fox
+  FROG: Frog
   GHAST: Ghast
   GIANT: Giant
   GLOW_SQUID: Glow Squid
@@ -30,8 +36,8 @@ translations:
   IRON_GOLEM: Iron Golem
   LLAMA: Llama
   MAGMA_CUBE: Magma Cube
+  MOOSHROM: Mooshroom
   MULE: Mule
-  MUSHROOM_COW: Mooshroom
   OCELOT: Ocelot
   PANDA: Panda
   PARROT: Parrot
@@ -52,17 +58,20 @@ translations:
   SKELETON: Skeleton
   SKELETON_HORSE: Skeleton Horse
   SLIME: Slime
+  SNIFFER: Sniffer
   SNOWMAN: Snow Golem
   SPIDER: Spider
+  SQUID: Squid
   STRAY: Stray
   STRIDER: Strider
-  SQUID: Squid
+  TADPOLE: Tadpole
   TROPICAL_FISH: Tropical Fish
   TURTLE: Turtle
   VEX: Vex
   VILLAGER: Villager
   VINDICATOR: Vindicator
   WANDERING_TRADER: Wandering Trader
+  WARDEN: Warden
   WITCH: Witch
   WITHER: Wither
   WITHER_SKELETON: Wither Skeleton

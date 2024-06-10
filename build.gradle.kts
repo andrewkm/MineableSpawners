@@ -14,14 +14,14 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.cryptomorin:XSeries:8.7.1")
-    implementation("de.tr7zw:item-nbt-api:2.11.3")
-    compileOnly("org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT")
-    compileOnly("com.github.MilkBowl:VaultAPI:1.7")
+    implementation("com.github.cryptomorin:XSeries:11.0.0")
+    implementation("de.tr7zw:item-nbt-api:2.12.5-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot-api:1.20.6-R0.1-SNAPSHOT")
+    compileOnly("com.github.MilkBowl:VaultAPI:1.7.1")
 }
 
 group = "com.dnyferguson"
-version = "3.1.5"
+version = "3.2.0"
 description = "MineableSpawners"
 java.sourceCompatibility = JavaVersion.VERSION_16
 
@@ -32,6 +32,9 @@ tasks {
     shadowJar {
         relocate("de.tr7zw.changeme.nbtapi", "com.dnyferguson.mineablespawners.nbtapi")
         relocate("com.cryptomorin.xseries", "com.dnyferguson.mineablespawners.xseries")
+        manifest {
+            attributes("paperweight-mappings-namespace" to "mojang")
+        }
     }
     processResources {
         filesMatching("**/*.yml") {

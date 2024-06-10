@@ -8,7 +8,6 @@ import com.dnyferguson.mineablespawners.listeners.SpawnerExplodeListener;
 import com.dnyferguson.mineablespawners.listeners.SpawnerMineListener;
 import com.dnyferguson.mineablespawners.listeners.SpawnerPlaceListener;
 import com.dnyferguson.mineablespawners.listeners.AnvilRenameListener;
-import com.dnyferguson.mineablespawners.metrics.Metrics;
 import com.dnyferguson.mineablespawners.utils.ConfigurationHandler;
 import com.dnyferguson.mineablespawners.utils.LanguageHandler;
 import net.milkbowl.vault.economy.Economy;
@@ -57,8 +56,6 @@ public final class MineableSpawners extends JavaPlugin {
         }
 
         api = new API(this);
-        int pluginId = 7354;
-        Metrics metrics = new Metrics(this, pluginId);
     }
 
     private boolean setupEconomy() {
