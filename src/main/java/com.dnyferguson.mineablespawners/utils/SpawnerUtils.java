@@ -30,7 +30,7 @@ public class SpawnerUtils {
         }
         if (MineableSpawners.getInstance().getConfigurationHandler().getBoolean("global", "hide-attributes")) {
             try {
-                meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+                meta.addItemFlags(ItemFlag.valueOf("HIDE_ADDITIONAL_TOOLTIP"));
             } catch (Exception e) {
                 meta.addItemFlags(ItemFlag.valueOf("HIDE_POTION_EFFECTS"));
             }
