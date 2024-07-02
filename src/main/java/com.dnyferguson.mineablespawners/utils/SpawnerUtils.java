@@ -29,7 +29,11 @@ public class SpawnerUtils {
             meta.setLore(newLore);
         }
         if (MineableSpawners.getInstance().getConfigurationHandler().getBoolean("global", "hide-attributes")) {
-            meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS); //Idk why this flag hides vanilla attributes
+            try {
+                meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+            } catch (Exception e) {
+                meta.addItemFlags(ItemFlag.valueOf("HIDE_POTION_EFFECTS"));
+            }
         }
 
         item.setItemMeta(meta);
