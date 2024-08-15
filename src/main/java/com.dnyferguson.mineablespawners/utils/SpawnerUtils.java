@@ -7,6 +7,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,11 @@ public class SpawnerUtils {
         ItemMeta meta = item.getItemMeta();
         item.setAmount(amount);
 
+        // Unknown spawners default to pigs in game anyways...
+        if (entityType == null) {
+            entityType = EntityType.PIG;
+        }
+
         String mobFormatted = LanguageHandler.getEntityTranslation(entityType);
         meta.setDisplayName(Chat.format(MineableSpawners.getInstance().getConfigurationHandler().getMessage("global", "name").replace("%mob%", mobFormatted)));
         List<String> newLore = new ArrayList<>();
@@ -28,8 +34,13 @@ public class SpawnerUtils {
             }
             meta.setLore(newLore);
         }
+
         if (MineableSpawners.getInstance().getConfigurationHandler().getBoolean("global", "hide-attributes")) {
-            meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES); //Idk why this flag hides vanilla attributes
+            try {
+                meta.addItemFlags(ItemFlag.valueOf("HIDE_ADDITIONAL_TOOLTIP"));
+            } catch (Exception e) {
+                meta.addItemFlags(ItemFlag.valueOf("HIDE_POTION_EFFECTS"));
+            }
         }
 
         item.setItemMeta(meta);

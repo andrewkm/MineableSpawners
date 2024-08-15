@@ -4,7 +4,8 @@
 </p>
 
 # Unmaintained
-I haven't touched this in a while as I've been mostly out of the MC scene. It should continue to work fine on servers that are still on the supported MC versions (1.8 1.9 1.10 1.11 1.12 1.13 1.14 1.15 1.16 1.17 1.18 1.19) but I won't make any guarantees. Thanks for using something I've created, I'm glad it helped out people at a time where alternatives were not as good.
+
+I haven't touched this in a while as I've been mostly out of the MC scene. It should continue to work fine on servers that are still on the supported MC versions (1.8 1.9 1.10 1.11 1.12 1.13 1.14 1.15 1.16 1.17 1.18 1.19 1.20 1.20.1 1.20.2 1.20.3 1.20.4 1.20.5 1.20.6) but I won't make any guarantees. Thanks for using something I've created, I'm glad it helped out people at a time where alternatives were not as good.
 
 # MineableSpawners
 This plugin allows players to mine and drop spawners, receive them via command and more!​

@@ -40,9 +40,11 @@ public class LanguageHandler {
         }
         ConfigurationSection translationSection = languageConfig.getConfigurationSection("translations");
         for (String key : translationSection.getKeys(false)) {
-            EntityType entityType = EntityType.valueOf(key);
-            String translation = translationSection.getString(key);
-            translations.put(entityType, translation);
+            try {
+                EntityType entityType = EntityType.valueOf(key);
+                String translation = translationSection.getString(key);
+                translations.put(entityType, translation);
+            } catch (Exception ignore) {}
         }
     }
 
