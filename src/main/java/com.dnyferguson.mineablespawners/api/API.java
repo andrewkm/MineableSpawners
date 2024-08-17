@@ -9,6 +9,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,7 @@ public class API {
         this.plugin = plugin;
     }
 
+    @Nullable
     public EntityType getEntityTypeFromItemStack(ItemStack item) {
         EntityType entityType = null;
 
