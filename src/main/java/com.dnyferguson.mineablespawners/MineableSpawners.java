@@ -10,8 +10,6 @@ import com.dnyferguson.mineablespawners.listeners.SpawnerPlaceListener;
 import com.dnyferguson.mineablespawners.listeners.AnvilRenameListener;
 import com.dnyferguson.mineablespawners.utils.ConfigurationHandler;
 import com.dnyferguson.mineablespawners.utils.LanguageHandler;
-import com.dnyferguson.mineablespawners.listeners.AnvilRenameListener;
-import com.dnyferguson.mineablespawners.listeners.SpawnerExplodeListener;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.entity.EntityType;
 import org.bukkit.plugin.PluginManager;
